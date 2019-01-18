@@ -7,6 +7,7 @@ using InvestmentDashboard.Domain.DataAccess;
 using InvestmentDashboard.Repository.DatabaseContext;
 using InvestmentDashboard.Repository.Repositories;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,7 @@ namespace InvestmentDashboard.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors();
 
             services.AddDbContext<InvestmentContext>(context => { context.UseInMemoryDatabase("ConferencePlanner"); });
 
@@ -41,6 +43,7 @@ namespace InvestmentDashboard.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
