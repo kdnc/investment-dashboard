@@ -1,4 +1,4 @@
-# Invetment Dashboard
+# Investment Dashboard
 
 I have build a reusable table component using React which supports server side pagination and sorting. 
 
