@@ -1,0 +1,8 @@
+.ReactTable .rt-thead [role="columnheader"] {
+    outline: 0;
+}
+
+.ReactTable .rt-thead .rt-resizable-header-content {
+    padding-left: 20px;
+    padding-top: 5px;
+}
